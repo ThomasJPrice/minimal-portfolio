@@ -1,13 +1,14 @@
 import { NextResponse } from 'next/server'
 import { getAccessToken } from '@/lib/spotify'
-import { estimateTabsOpened, getGithubCommitsThisYear, getSpotifyMinutesThisYear } from '@/lib/stats'
+import { estimateTabsOpened, getGithubCommitsThisYear, getSpotifyMinutesThisYear, getTotalViews } from '@/lib/stats'
 
 export async function GET() {
-  const [githubCommits, spotifyMinutes, tabsOpened] = await Promise.all([
+  const [githubCommits, spotifyMinutes, tabsOpened, totalViews] = await Promise.all([
     getGithubCommitsThisYear(),
     getSpotifyMinutesThisYear(),
-    estimateTabsOpened()
+    estimateTabsOpened(),
+    getTotalViews(),
   ])
 
-  return NextResponse.json({ githubCommits, spotifyMinutes, tabsOpened })
+  return NextResponse.json({ githubCommits, spotifyMinutes, tabsOpened, totalViews })
 }

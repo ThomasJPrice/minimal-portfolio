@@ -3,6 +3,8 @@ import "./globals.css";
 import { EB_Garamond } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import KeyboardNav from "@/components/KeyboardNav";
+import Footer from "@/components/Footer";
+import { IncrementViews } from "@/components/IncrementViews";
 
 const garamond = EB_Garamond({
   subsets: ['latin'],
@@ -27,8 +29,10 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <Footer />
 
         <KeyboardNav />
+        <IncrementViews />
       </body>
     </html>
   );

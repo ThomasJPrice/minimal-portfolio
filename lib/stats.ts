@@ -1,3 +1,5 @@
+import { redis } from "./redis"
+
 export async function getGithubCommitsThisYear(): Promise<number> {
   const username = 'thomasjprice'
   const year = new Date().getFullYear()
@@ -27,4 +29,9 @@ export async function estimateTabsOpened(): Promise<number> {
   const estimatedTabsPerDay = 40
 
   return days * estimatedTabsPerDay
+}
+
+export async function getTotalViews(): Promise<number> {
+  const count = await redis.get<number>('site:views')
+  return count || 0
 }

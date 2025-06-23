@@ -7,6 +7,7 @@ type Stats = {
   githubCommits: number
   spotifyMinutes: number
   tabsOpened: number
+  totalViews: number
 }
 
 export default function StatsThisYear() {
@@ -38,6 +39,9 @@ export default function StatsThisYear() {
 
           <p className="text-gray-700">Tabs opened</p>
           <p>{stats.tabsOpened.toLocaleString()}</p>
+
+          <p className="text-gray-700">Page views</p>
+          <p>{stats.totalViews.toLocaleString()}</p>
         </div>
       </div>
     </section>

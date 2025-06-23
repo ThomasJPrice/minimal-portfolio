@@ -70,25 +70,6 @@ export default function Home() {
         </ul>
       </section>
 
-      <footer className="mt-12">
-
-        <div className="flex sm:justify-start gap-4">
-          <a href="https://github.com/thomasjprice" target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>
-          <a href="mailto:contact@thomasprice.me">
-            Email
-          </a>
-          <a href="https://www.linkedin.com/in/thomas-price-2a48b4262/" target="_blank" rel="noopener noreferrer">
-            LinkedIn
-          </a>
-        </div>
-
-        <p>
-          Thomas Price © {new Date().getFullYear()}
-        </p>
-      </footer>
-
     </main>
   );
 }
