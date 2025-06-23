@@ -23,6 +23,9 @@
     @apply list-disc pl-6;
   }
   a {
-    @apply underline underline-offset-2 text-inherit text-[1rem];
+    @apply underline underline-offset-2 text-inherit text-[1rem] transition-colors duration-200;
+  }
+  a:hover {
+    @apply text-[#3b6b50]
   }
 }
