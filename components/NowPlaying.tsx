@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 type NowPlayingTrack = {
@@ -28,7 +29,7 @@ export default function NowPlaying() {
 
   return (
     <div className="group flex items-center gap-2 text-sm text-gray-700 mt-4 cursor-default">
-      <img src="/spotify.svg" alt="Spotify" className="w-4 h-4 opacity-60" />
+      <Image width={16} height={16} src="/spotify.svg" alt="Spotify" className="w-4 h-4 opacity-60" />
       <p>
         {track.title} - {track.artist}
       </p>
