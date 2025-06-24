@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import KeyboardNav from "@/components/KeyboardNav";
 import Footer from "@/components/Footer";
 import { IncrementViews } from "@/components/IncrementViews";
+import KonamiMatrix from "@/components/KonamiMatrix";
 
 const garamond = EB_Garamond({
   subsets: ['latin'],
@@ -25,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`scroll-smooth ${garamond.variable} ${garamond.className} bg-[#faf9f6] text-[#111111] text-[18px] leading-[1.7] mx-4 md:m-0 pb-8 lowercase`}
+        className={`scroll-smooth ${garamond.variable} ${garamond.className} text-[18px] leading-[1.7] mx-4 md:m-0 pb-8 lowercase`}
       >
         <Navbar />
         {children}
@@ -33,6 +34,7 @@ export default function RootLayout({
 
         <KeyboardNav />
         <IncrementViews />
+        <KonamiMatrix />
       </body>
     </html>
   );

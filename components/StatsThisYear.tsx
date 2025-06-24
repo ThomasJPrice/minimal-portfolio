@@ -29,18 +29,17 @@ export default function StatsThisYear() {
     <section className='mt-12'>
       <h2>so far this year</h2>
 
-      <div>
-        <div className="grid grid-cols-2 gap-x-4">
-          <p className="text-gray-700">GitHub commits</p>
+      <div>        <div className="grid grid-cols-2 gap-x-4">
+          <p style={{ color: 'var(--secondary-color)' }}>GitHub commits</p>
           <p>{stats.githubCommits.toLocaleString()}</p>
 
-          <p className="text-gray-700">Spotify minutes</p>
+          <p style={{ color: 'var(--secondary-color)' }}>Spotify minutes</p>
           <p>{stats.spotifyMinutes.toLocaleString()}</p>
 
-          <p className="text-gray-700">Tabs opened</p>
+          <p style={{ color: 'var(--secondary-color)' }}>Tabs opened</p>
           <p>{stats.tabsOpened.toLocaleString()}</p>
 
-          <p className="text-gray-700">Page views</p>
+          <p style={{ color: 'var(--secondary-color)' }}>Page views</p>
           <p>{stats.totalViews.toLocaleString()}</p>
         </div>
       </div>

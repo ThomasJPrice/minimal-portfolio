@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Logo } from "./Logo";
 
 const NavLinks = [
   { href: "/lab", label: "Lab", key: "l" },
@@ -13,8 +14,8 @@ export default function Navbar() {
   return (
     <nav className="max-w-xl mx-auto flex items-center justify-between py-8">
       <div>
-        <Link href="/" className="text-2xl font-bold">
-          <Image src='/logo.svg' alt="Logo" width={32} height={32} className="inline-block" />
+        <Link href="/" className="">
+          <Logo className="w-8 h-8 inline-block text-inherit" />
         </Link>
       </div>
 

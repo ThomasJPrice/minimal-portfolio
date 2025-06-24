@@ -1,6 +1,42 @@
 @import "tailwindcss";
 
+:root {
+  /* Default theme colors */
+  --bg-color: #faf9f6;
+  --text-color: #111111;
+  --accent-color: #3b6b50;
+  --secondary-color: #374151;
+  --muted-color: #6b7280;
+}
+
+:root.matrix-theme {
+  /* Matrix theme colors */
+  --bg-color: #000000;
+  --text-color: #00ff00;
+  --accent-color: #00aa00;
+  --secondary-color: #008800;
+  --muted-color: #008800;
+}
+
 @layer base {
+  body {
+    transition: all 0.5s ease-in-out;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  
+  .matrix-theme body {
+    text-shadow: 0 0 5px currentColor;
+  }
+  
+  .matrix-theme a:hover {
+    text-shadow: 0 0 10px var(--accent-color);
+  }
+  
+  .hover-accent:hover {
+    color: var(--accent-color) !important;
+  }
+  
   main {
     @apply max-w-xl mx-auto
   }
@@ -26,6 +62,6 @@
     @apply underline underline-offset-2 text-inherit text-[1rem] transition-colors duration-200;
   }
   a:hover {
-    @apply text-[#3b6b50]
+    color: var(--accent-color);
   }
 }

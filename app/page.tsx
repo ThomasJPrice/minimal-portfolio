@@ -29,6 +29,9 @@ export default function Home() {
             (25) <Link href='https://babyblueitconsulting.com/' target='_blank'>Baby Blue IT</Link> - IT consulting website
           </li>
           <li>
+            (25) <Link href='https://5secondsong.tech/' target='_blank'>5 Second Song</Link> - fun little game where you guess the song in 5 seconds (mine)
+          </li>
+          <li>
             (24) <Link href='https://paapo.co.uk/' target='_blank'>Paapo</Link> - Financial stability + help website
           </li>
           <li>
