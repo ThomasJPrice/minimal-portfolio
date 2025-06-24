@@ -1,3 +1,4 @@
+import { headers } from "next/headers"
 import { redis } from "./redis"
 
 export async function getGithubCommitsThisYear(): Promise<number> {
@@ -19,7 +20,16 @@ export async function getGithubCommitsThisYear(): Promise<number> {
 
 
 export async function getSpotifyMinutesThisYear(): Promise<number> {
-  return 42100 // or fetch from API if you've saved data elsewhere
+  const host = (await headers()).get('host')
+  const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https'
+  const res = await fetch(`${protocol}://${host}/api/spotify-minutes`)
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch Spotify minutes')
+  }
+
+  const data = await res.json()
+  return data.minutes || 0
 }
 
 export async function estimateTabsOpened(): Promise<number> {

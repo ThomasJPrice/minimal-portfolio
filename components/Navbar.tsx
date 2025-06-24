@@ -14,7 +14,7 @@ export default function Navbar() {
     <nav className="max-w-xl mx-auto flex items-center justify-between py-8">
       <div>
         <Link href="/" className="text-2xl font-bold">
-          <Image src='/logo.png' alt="Logo" width={32} height={32} className="inline-block" />
+          <Image src='/logo.svg' alt="Logo" width={32} height={32} className="inline-block" />
         </Link>
       </div>
 
