@@ -30,7 +30,7 @@ export default function StatsThisYear() {
       <h2>so far this year</h2>
 
       <div>        <div className="grid grid-cols-2 gap-x-4">
-          <p style={{ color: 'var(--secondary-color)' }}>GitHub commits</p>
+          <p style={{ color: 'var(--secondary-color)' }}>GitHub contributions</p>
           <p>{stats.githubCommits.toLocaleString()}</p>
 
           <p style={{ color: 'var(--secondary-color)' }}>Spotify minutes</p>

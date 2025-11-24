@@ -1,21 +1,39 @@
 import { headers } from "next/headers"
 import { redis } from "./redis"
 
-export async function getGithubCommitsThisYear(): Promise<number> {
-  const username = 'thomasjprice'
-  const year = new Date().getFullYear()
+const GITHUB_USERNAME = 'thomasjprice'
 
-  const res = await fetch(`https://api.github.com/search/commits?q=author:${username}+committer-date:${year}-01-01..${year}-12-31`, {
+export async function getGithubCommitsThisYear(): Promise<number> {
+  const year = new Date().getFullYear()
+  const token = process.env.GITHUB_TOKEN
+
+  if (!token) return 0
+
+  const query = `
+    query {
+      user(login: "${GITHUB_USERNAME}") {
+        contributionsCollection(from: "${year}-01-01T00:00:00Z", to: "${year}-12-31T23:59:59Z") {
+          contributionCalendar {
+            totalContributions
+          }
+        }
+      }
+    }
+  `
+
+  const res = await fetch('https://api.github.com/graphql', {
+    method: 'POST',
     headers: {
-      Accept: 'application/vnd.github.cloak-preview',
-      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
     },
+    body: JSON.stringify({ query }),
   })
 
   if (!res.ok) return 0
 
   const data = await res.json()
-  return data.total_count || 0
+  return data?.data?.user?.contributionsCollection?.contributionCalendar?.totalContributions || 0
 }
 
 

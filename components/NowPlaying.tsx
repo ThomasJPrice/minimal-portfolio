@@ -92,7 +92,7 @@ export default function NowPlaying() {
         {track.isPlaying ? '(Now playing)' : '(last played)'}
       </span>
       {track.preview && (
-        <audio ref={audioRef} src={track.preview} preload="none" />
+        <audio ref={audioRef} src={track.preview} />
       )}
     </div>
   )
